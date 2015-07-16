@@ -42,7 +42,12 @@ function info(file) {
 		var rx = /^(\d*\.?\d*)([KMGT]?B)$/;  // regex for extract the float value and its unit
 		var sizeArray = rx.exec(sizeString);
 
-		return parseFloat(sizeArray[1]) * unit[sizeArray[2]];
+		if (sizeArray) {
+			return parseFloat(sizeArray[1]) * unit[sizeArray[2]];
+		} else {
+			return sizeString;
+		}
+
 	};
 
 	//file = quoted_name(file);
